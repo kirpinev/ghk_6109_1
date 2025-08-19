@@ -19,7 +19,6 @@ import { appSt } from "./style.css";
 import { Gap } from "@alfalab/core-components/gap";
 import { useState } from "react";
 import { BottomSheet } from "@alfalab/core-components/bottom-sheet";
-import {sendDataToGA} from "./utils/events.ts";
 
 interface Product {
   title: string;
@@ -106,7 +105,7 @@ export const App = () => {
   const submit = () => {
     setLoading(true);
 
-    sendDataToGA({detailed: "0"}).then(() => {
+    Promise.resolve().then(() => {
         setLoading(false);
         LS.setItem(LSKeys.ShowThx, true);
         setThx(true);
